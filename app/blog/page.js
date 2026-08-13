@@ -1,9 +1,10 @@
 'use client';
 
-import { useState, useMemo, useEffect, Suspense, useCallback, useTransition } from 'react';
+import { useState, useMemo, Suspense, useCallback, useTransition } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import posts from '@/data/posts.json';
+import BlogFilters from './BlogFilters'; // Make sure this path matches your structure
 
 const POSTS_PER_PAGE = 6;
 
@@ -13,6 +14,38 @@ function calculateReadTime(content) {
   const wordCount = content ? content.split(/\s+/).length : 0;
   const minutes = Math.ceil(wordCount / wordsPerMinute);
   return `${minutes} min read`;
+}
+
+// Terminal-styled Skeleton Card component
+function PostCardSkeleton() {
+  return (
+    <div className="flex flex-col bg-[#111827]/90 rounded-xl border border-slate-800/80 p-6 animate-pulse font-mono">
+      {/* Top Meta Bar */}
+      <div className="flex items-center justify-between mb-4">
+        <div className="h-5 w-16 bg-emerald-950/60 border border-emerald-500/20 rounded-md" />
+        <div className="h-3 w-20 bg-slate-800 rounded" />
+      </div>
+
+      {/* Title Lines */}
+      <div className="space-y-2 mb-4">
+        <div className="h-5 bg-slate-800 rounded w-5/6" />
+        <div className="h-5 bg-slate-800 rounded w-2/3" />
+      </div>
+
+      {/* Excerpt Lines */}
+      <div className="space-y-2 mb-6">
+        <div className="h-3 bg-slate-800/60 rounded w-full" />
+        <div className="h-3 bg-slate-800/60 rounded w-11/12" />
+        <div className="h-3 bg-slate-800/60 rounded w-4/5" />
+      </div>
+
+      {/* Card Footer Divider & Metadata */}
+      <div className="pt-4 border-t border-slate-800/80 flex items-center justify-between">
+        <div className="h-3 w-16 bg-slate-800/70 rounded" />
+        <div className="h-3 w-24 bg-emerald-950/80 border border-emerald-500/20 rounded" />
+      </div>
+    </div>
+  );
 }
 
 function BlogContent() {
@@ -26,58 +59,29 @@ function BlogContent() {
   const selectedCategory = searchParams.get('cat') || 'All';
   const currentPage = Number(searchParams.get('page')) || 1;
 
-  // Local state for search input and newsletter form
-  const [searchInput, setSearchInput] = useState(searchQuery);
+  // Local state for newsletter form
   const [subscribed, setSubscribed] = useState(false);
   const [email, setEmail] = useState('');
 
-  // Keep local search input synchronized if URL changes externally (e.g., Browser Back/Forward)
-  useEffect(() => {
-    setSearchInput(searchQuery);
-  }, [searchQuery]);
-
-  // 2. Centralized, stabilized URL search parameter updater
-  const updateFilters = useCallback(
-    (updates) => {
-      const params = new URLSearchParams(searchParams.toString());
-
-      Object.entries(updates).forEach(([key, value]) => {
-        if (value && value !== 'All' && value !== 1) {
-          params.set(key, value.toString());
-        } else {
-          params.delete(key); // Cleans up default/empty values from URL string
-        }
-      });
-
-      const newQueryString = params.toString();
-      const targetUrl = newQueryString ? `${pathname}?${newQueryString}` : pathname;
-
-      startTransition(() => {
-        // scroll: false prevents page jump to top when changing filters or pages
-        router.push(targetUrl, { scroll: false });
-      });
-    },
-    [pathname, router, searchParams]
-  );
-
-  // 3. Debounce search input changes to preserve smooth UX and clean URL history
-  useEffect(() => {
-    if (searchInput === searchQuery) return;
-
-    const timer = setTimeout(() => {
-      updateFilters({
-        q: searchInput,
-        page: 1, // Reset to page 1 whenever search query updates
-      });
-    }, 300);
-
-    return () => clearTimeout(timer);
-  }, [searchInput, searchQuery, updateFilters]);
-
+  // 2. Generate unique categories from posts
   const categories = useMemo(() => {
     const list = posts.map((post) => post.category || 'Tech');
     return ['All', ...Array.from(new Set(list))];
   }, []);
+
+  // 3. NEW: Calculate category counts dynamically based on the JSON data
+  const categoryCounts = useMemo(() => {
+    return categories.reduce((acc, category) => {
+      if (category === 'All') {
+        acc[category] = posts.length;
+      } else {
+        acc[category] = posts.filter(
+          (post) => (post.category || 'Tech') === category
+        ).length;
+      }
+      return acc;
+    }, {});
+  }, [categories]);
 
   // Filter posts based on URL-driven category and search query
   const filteredPosts = useMemo(() => {
@@ -102,22 +106,17 @@ function BlogContent() {
     return filteredPosts.slice(start, start + POSTS_PER_PAGE);
   }, [filteredPosts, currentPage]);
 
-  // Handlers
-  const handleCategorySelect = (category) => {
-    updateFilters({
-      cat: category,
-      page: 1, // Reset to page 1
-    });
-  };
-
+  // Handler for pagination (URL updating)
   const setPage = (newPage) => {
-    updateFilters({
-      page: newPage,
+    const params = new URLSearchParams(searchParams.toString());
+    params.set('page', newPage.toString());
+    startTransition(() => {
+      router.push(`${pathname}?${params.toString()}`, { scroll: false });
     });
   };
 
+  // Handler to clear all parameters if search yields 0 results
   const resetFilters = () => {
-    setSearchInput('');
     startTransition(() => {
       router.push(pathname, { scroll: false });
     });
@@ -167,55 +166,24 @@ function BlogContent() {
           </p>
         </header>
 
-        {/* Filter & Search Bar */}
-        <div className="mb-10 space-y-4 md:space-y-0 md:flex md:items-center md:justify-between gap-4">
-          <div className="relative flex-1 max-w-md">
-            <input
-              type="text"
-              placeholder="grep 'keyword'..."
-              value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
-              className="w-full px-4 py-2.5 pl-10 text-xs text-emerald-300 bg-[#111827] border border-slate-800 rounded-xl focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none transition placeholder:text-slate-600"
-            />
-            <span className="absolute left-3.5 top-3 text-xs text-emerald-500 font-bold">$</span>
-            {searchInput && (
-              <button
-                onClick={() => setSearchInput('')}
-                className="absolute right-3 top-2.5 text-slate-500 hover:text-emerald-400 text-xs"
-              >
-                [clear]
-              </button>
-            )}
-          </div>
+        {/* NEW: Replaced inline UI with the abstracted BlogFilters component */}
+        <BlogFilters 
+          categories={categories}
+          categoryCounts={categoryCounts}
+          currentQuery={searchQuery}
+          currentCategory={selectedCategory}
+        />
 
-          <div className="flex flex-wrap gap-2">
-            {categories.map((category) => {
-              const active = selectedCategory === category;
-              return (
-                <button
-                  key={category}
-                  onClick={() => handleCategorySelect(category)}
-                  className={`px-3.5 py-1.5 text-xs rounded-lg border transition-all duration-150 ${
-                    active
-                      ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/50 shadow-[0_0_10px_rgba(16,185,129,0.2)]'
-                      : 'bg-[#111827] text-slate-400 border-slate-800 hover:border-slate-700 hover:text-slate-200'
-                  }`}
-                >
-                  #{category}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Article Grid */}
-        {paginatedPosts.length > 0 ? (
+        {/* Article Grid / Skeleton Loader */}
+        {isPending ? (
+          <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 font-sans">
+            {Array.from({ length: POSTS_PER_PAGE }).map((_, index) => (
+              <PostCardSkeleton key={index} />
+            ))}
+          </section>
+        ) : paginatedPosts.length > 0 ? (
           <>
-            <section
-              className={`grid gap-6 md:grid-cols-2 lg:grid-cols-3 font-sans transition-opacity duration-200 ${
-                isPending ? 'opacity-50' : 'opacity-100'
-              }`}
-            >
+            <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 font-sans">
               {paginatedPosts.map((post) => (
                 <article
                   key={post.slug}
@@ -234,7 +202,7 @@ function BlogContent() {
                         <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                       </h2>
 
-                      <p className="text-slate-400 text-sm line-clamp-3 leading-relaxed mb-6">
+                      <p className="text-slate-400 text-sm line-clamp-3 leading-relaxed mb-6 font-sans">
                         {post.excerpt}
                       </p>
                     </div>
@@ -293,12 +261,12 @@ function BlogContent() {
           </>
         ) : (
           <div className="text-center py-16 bg-[#111827] rounded-xl border border-dashed border-slate-800">
-            <p className="text-slate-400 text-sm">
+            <p className="text-slate-400 text-sm font-mono">
               QUERY_RETURNED_NULL: No articles match search parameters.
             </p>
             <button
               onClick={resetFilters}
-              className="mt-4 px-4 py-2 text-xs font-mono text-emerald-400 bg-emerald-950/50 border border-emerald-500/30 rounded-lg hover:bg-emerald-900/40"
+              className="mt-4 px-4 py-2 text-xs font-mono text-emerald-400 bg-emerald-950/50 border border-emerald-500/30 rounded-lg hover:bg-emerald-900/40 transition-colors"
             >
               reset_query()
             </button>

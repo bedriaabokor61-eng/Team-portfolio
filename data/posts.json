@@ -62,5 +62,197 @@
       "date": "2026-08-12",
       "excerpt": "How to measure and improve LCP, INP, and CLS scores to boost user retention and search engine rankings.",
       "content": "Core Web Vitals are Google's metrics for measuring real-world user experience regarding loading speed, interactivity, and visual stability.\n\nOptimizing Largest Contentful Paint (LCP) involves serving next-gen image formats like WebP/AVIF, preloading critical fonts, and utilizing CDNs for edge caching.\n\nMinimizing main-thread JavaScript execution ensures immediate Interaction to Next Paint (INP) responsiveness, keeping your site buttery smooth on low-powered mobile devices."
+    },
+    {
+      "slug": "nextjs-15-app-router-migration",
+      "title": "Navigating App Router Paradigms in Next.js",
+      "category": "Frontend",
+      "date": "2026-08-10",
+      "excerpt": "A deep dive into server actions, partial prerendering, and stabilizing query state across client components.",
+      "content": "Migrating to modern Next.js patterns requires rethinking state boundaries and decoupling client interactivity from dynamic server execution..."
+    },
+    {
+      "slug": "optimizing-postgres-jsonb-queries",
+      "title": "High-Performance JSONB Indexing in PostgreSQL",
+      "category": "Database",
+      "date": "2026-08-04",
+      "excerpt": "How GIN indexes and expression indexing can reduce dynamic document queries from seconds to single-digit milliseconds.",
+      "content": "PostgreSQL JSONB provides flexible schema storage without abandoning ACID compliance when query patterns are structured correctly..."
+    },
+    {
+      "slug": "jwt-vs-session-cookies-in-2026",
+      "title": "Architecting Secure Authentication: Sessions vs Tokens",
+      "category": "Security",
+      "date": "2026-07-28",
+      "excerpt": "Why modern web security is shifting back to HTTP-only cookies and stateful sessions for critical SaaS infrastructure.",
+      "content": "Stateless JWTs introduced significant revocation challenges that stateful server sessions in Redis avoid effortlessly..."
+    },
+    {
+      "slug": "building-event-driven-microservices-kafka",
+      "title": "Event-Driven Microservices with Apache Kafka",
+      "category": "Backend",
+      "date": "2026-07-19",
+      "excerpt": "Patterns for idempotency, dead-letter queues, and handling schema evolution across decoupled distributed services.",
+      "content": "As microservice architecture matures, synchronous REST APIs often become system bottlenecks that asynchronous message streaming solves..."
+    },
+    {
+      "slug": "tailwind-css-v4-performance-gains",
+      "title": "Leveraging Oxide Engine in Modern CSS Workflows",
+      "category": "Frontend",
+      "date": "2026-07-12",
+      "excerpt": "Exploring Rust-powered build steps, native CSS variables, and zero-config setup in current Tailwind setups.",
+      "content": "The transition to native Rust tooling dramatically improves compilation speeds for heavy component design trees..."
+    },
+    {
+      "slug": "docker-multi-stage-builds-prod",
+      "title": "Shrinking Production Docker Images by 80%",
+      "category": "DevOps",
+      "date": "2026-07-01",
+      "excerpt": "Using multi-stage builds, distroless images, and minimal runtime dependencies for fast deployment pipelines.",
+      "content": "Large container images degrade deployment speed and increase attack surfaces in production cloud clusters..."
+    },
+    {
+      "slug": "redis-caching-patterns-at-scale",
+      "title": "Cache Stampede Prevention & Distributed Locking",
+      "category": "Backend",
+      "date": "2026-06-25",
+      "excerpt": "Implementing mutexes, probabilistic early expiration, and cache invalidation strategies using Redis.",
+      "content": "When thousands of requests hit an expired cache key concurrently, distributed locks prevent database failure cascades..."
+    },
+    {
+      "slug": "micro-frontend-architecture-tradeoffs",
+      "title": "Micro-Frontends: When to Build vs Avoid",
+      "category": "Architecture",
+      "date": "2026-06-18",
+      "excerpt": "Evaluating module federation, independent team velocity, and shared dependency overhead in enterprise web applications.",
+      "content": "Scaling web applications across dozens of engineering teams introduces organizational bottlenecks that micro-frontends address at the cost of complexity..."
+    },
+    {
+      "slug": "securing-graphql-endpoints-rate-limiting",
+      "title": "Defending GraphQL APIs Against Nested Query Attacks",
+      "category": "Security",
+      "date": "2026-06-10",
+      "excerpt": "How to implement query depth limiting, cost analysis, and field-level authorization in public GraphQL endpoints.",
+      "content": "The flexibility of GraphQL allows clients to request exactly what they need, but also exposes endpoints to denial-of-service recursive queries..."
+    },
+    {
+      "slug": "react-compiler-auto-memoization",
+      "title": "Understanding Auto-Memoization in Modern React",
+      "category": "Frontend",
+      "date": "2026-05-30",
+      "excerpt": "Why explicit useMemo and useCallback hooks are becoming legacy constructs as compiler optimizations take over.",
+      "content": "Manual memoization has long been a source of developer friction and subtle bugs that compile-time analysis solves automatically..."
+    },
+    {
+      "slug": "database-sharding-strategies-mysql",
+      "title": "Horizontal Sharding in Distributed Relational Databases",
+      "category": "Database",
+      "date": "2026-05-21",
+      "excerpt": "Designing shard keys, rebalancing partitions, and handling cross-shard joins in high-throughput applications.",
+      "content": "Vertical database scaling hits hard hardware limits that require partitioning database tables across multiple physical nodes..."
+    },
+    {
+      "slug": "ci-cd-github-actions-matrix-builds",
+      "title": "Optimizing GitHub Actions Workflows for Speed",
+      "category": "DevOps",
+      "date": "2026-05-14",
+      "excerpt": "Caching layer strategies, parallel matrix builds, and custom runner configuration for fast feedback loops.",
+      "content": "Slow continuous integration pipelines drag down engineering velocity and increase cloud runner bills..."
+    },
+    {
+      "slug": "clean-architecture-in-python-backend",
+      "title": "Domain-Driven Design in Python Web Services",
+      "category": "Backend",
+      "date": "2026-05-02",
+      "excerpt": "Decoupling business logic from frameworks like Django and FastAPI using repository patterns and entities.",
+      "content": "Coupling core application logic tightly to database ORMs makes framework upgrades and testing significantly harder..."
+    },
+    {
+      "slug": "css-container-queries-responsive-components",
+      "title": "Building Modular UI Components with Container Queries",
+      "category": "Design",
+      "date": "2026-04-22",
+      "excerpt": "Moving beyond viewport breakpoints to component-level responsive design using modern CSS specs.",
+      "content": "Traditional media queries force developers to assume where a component lives on the screen rather than how much space it has..."
+    },
+    {
+      "slug": "zero-trust-network-architecture-cloud",
+      "title": "Implementing Zero-Trust Security in Cloud Infrastructure",
+      "category": "Security",
+      "date": "2026-04-15",
+      "excerpt": "mTLS authentication, service mesh policies, and strict perimeter controls across multi-cloud environments.",
+      "content": "Perimeter-based network security assumes everything inside the private network is trustworthy, which insider threats exploit..."
+    },
+    {
+      "slug": "optimizing-node-js-event-loop",
+      "title": "Diagnosing Event Loop Blockers in Node.js Applications",
+      "category": "Backend",
+      "date": "2026-04-05",
+      "excerpt": "Using async_hooks, heap snapshots, and CPU profiling to identify synchronous bottlenecks under load.",
+      "content": "Node.js relies heavily on a single-threaded event loop that synchronous CPU operations easily freeze..."
+    },
+    {
+      "slug": "kubernetes-horizontal-pod-autoscaling",
+      "title": "Configuring Custom Metrics in Kubernetes HPA",
+      "category": "DevOps",
+      "date": "2026-03-27",
+      "excerpt": "Autoscaling pods based on Prometheus metrics, queue depth, and HTTP throughput rather than raw CPU/RAM.",
+      "content": "Scaling workloads purely on CPU usage often reacts too slowly during traffic spikes on queue consumer workers..."
+    },
+    {
+      "slug": "state-management-zustand-vs-context",
+      "title": "Scalable Client State: When Context API Breaks",
+      "category": "Frontend",
+      "date": "2026-03-18",
+      "excerpt": "Comparing global store solutions, selector-based re-renders, and atomic state libraries in complex apps.",
+      "content": "React Context is great for static values, but frequent updates trigger unnecessary re-renders across consumers..."
+    },
+    {
+      "slug": "designing-resilient-rest-apis",
+      "title": "API Resilience Patterns: Circuit Breakers & Retries",
+      "category": "Architecture",
+      "date": "2026-03-09",
+      "excerpt": "Preventing cascading failures in distributed systems using rate limiters, backoff jitter, and bulkheads.",
+      "content": "Network failures are inevitable when operating microservices at scale, making graceful degradation essential..."
+    },
+    {
+      "slug": "nosql-vs-sql-data-modeling",
+      "title": "Data Modeling Patterns: Relational vs Document Databases",
+      "category": "Database",
+      "date": "2026-02-28",
+      "excerpt": "Choosing between normalized relational tables and single-table MongoDB/DynamoDB design patterns.",
+      "content": "Selecting the right database engine depends directly on access patterns rather than personal storage preference..."
+    },
+    {
+      "slug": "securing-npm-dependencies-supply-chain",
+      "title": "Mitigating Software Supply Chain Attacks in Node Applications",
+      "category": "Security",
+      "date": "2026-02-14",
+      "excerpt": "Lockfile auditing, lockfile tampering detection, and automated vulnerability scanning in pipelines.",
+      "content": "Modern JavaScript projects rely on hundreds of third-party packages, exposing the build chain to compromise..."
+    },
+    {
+      "slug": "webassembly-performance-in-browser",
+      "title": "Running High-Performance C++ and Rust in the Browser",
+      "category": "Performance",
+      "date": "2026-02-01",
+      "excerpt": "Compiling native libraries to WebAssembly for heavy client-side computations and image processing.",
+      "content": "JavaScript engines are fast, but intensive mathematical operations often need native assembly execution speeds..."
+    },
+    {
+      "slug": "grpc-vs-rest-internal-microservices",
+      "title": "High-Throughput RPCs with gRPC and Protocol Buffers",
+      "category": "Architecture",
+      "date": "2026-01-20",
+      "excerpt": "How HTTP/2 multiplexing and compact binary serialization outperform JSON over REST for internal APIs.",
+      "content": "Internal service communication demands low latency and strong type safety that Protocol Buffers provide out of the box..."
+    },
+    {
+      "slug": "infrastructure-as-code-terraform-best-practices",
+      "title": "Modular Infrastructure Management with Terraform",
+      "category": "DevOps",
+      "date": "2026-01-10",
+      "excerpt": "Structuring remote state, environment isolation, and continuous delivery pipelines for IaC codebases.",
+      "content": "Managing cloud infrastructure manually through web consoles introduces human error and configuration drift across environments..."
     }
   ]
