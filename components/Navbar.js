@@ -3,7 +3,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useTheme } from './ThemeProvider'
+import { useTheme } from './Themeprovider'
 import {
   Home,
   Briefcase,

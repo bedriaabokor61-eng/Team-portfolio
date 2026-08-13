@@ -52,7 +52,7 @@ const POSTS = [
 export default function AboutPage() {
 	return (
 		<div>
-			<Navbar />
+			
 
 			<main>
 				<section className="hero-section">
