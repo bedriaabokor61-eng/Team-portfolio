@@ -101,7 +101,7 @@ export default function ContactPage() {
 
         {/* Purple glow */}
         <div
-          className="absolute -left-40 top-20 h-[500px] w-[500px] rounded-full bg-purple-700/20 blur-[120px]"
+          className="absolute -left-40 top-20 h-125 w-125 rounded-full bg-purple-700/20 blur-[120px]"
           style={{
             animation: "floatOne 9s ease-in-out infinite",
           }}
@@ -109,7 +109,7 @@ export default function ContactPage() {
 
         {/* Blue glow */}
         <div
-          className="absolute -right-40 top-40 h-[500px] w-[500px] rounded-full bg-blue-600/20 blur-[120px]"
+          className="absolute -right-40 top-40 h-125 w-125 rounded-full bg-blue-600/20 blur-[120px]"
           style={{
             animation: "floatTwo 10s ease-in-out infinite",
           }}
@@ -117,7 +117,7 @@ export default function ContactPage() {
 
         {/* Pink glow */}
         <div
-          className="absolute bottom-40 left-1/3 h-[350px] w-[350px] rounded-full bg-pink-600/10 blur-[110px]"
+          className="absolute bottom-40 left-1/3 h-87.5 w-87.5 rounded-full bg-pink-600/10 blur-[110px]"
           style={{
             animation: "floatThree 8s ease-in-out infinite",
           }}
@@ -125,13 +125,13 @@ export default function ContactPage() {
 
         {/* Animated network lines */}
         <div className="absolute inset-0 opacity-30">
-          <div className="absolute left-[5%] top-[20%] h-px w-[45%] rotate-[25deg] bg-gradient-to-r from-transparent via-purple-500 to-transparent" />
+          <div className="absolute left-[5%] top-[20%] h-px w-[45%] rotate-25 bg-linear-to-r from-transparent via-purple-500 to-transparent" />
 
-          <div className="absolute right-[0%] top-[35%] h-px w-[45%] -rotate-[25deg] bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
+          <div className="absolute right-[0%] top-[35%] h-px w-[45%] rotate-[-25deg] bg-linear-to-r from-transparent via-blue-500 to-transparent" />
 
-          <div className="absolute left-[10%] top-[55%] h-px w-[40%] -rotate-[15deg] bg-gradient-to-r from-transparent via-pink-500 to-transparent" />
+          <div className="absolute left-[10%] top-[55%] h-px w-[40%] rotate-[-15deg] bg-linear-to-r from-transparent via-pink-500 to-transparent" />
 
-          <div className="absolute right-[5%] top-[65%] h-px w-[40%] rotate-[15deg] bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
+          <div className="absolute right-[5%] top-[65%] h-px w-[40%] rotate-15 bg-linear-to-r from-transparent via-cyan-500 to-transparent" />
         </div>
 
         {/* Floating particles */}
@@ -164,7 +164,7 @@ export default function ContactPage() {
 
           <h1 className="text-4xl font-extrabold leading-tight sm:text-5xl md:text-6xl lg:text-7xl">
             Let&apos;s Build Something
-            <span className="block bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">
+            <span className="block bg-linear-to-r from-pink-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">
               Amazing Together
             </span>
           </h1>
@@ -210,7 +210,7 @@ export default function ContactPage() {
                 Get In Touch
               </h2>
 
-              <div className="mt-3 h-1 w-12 rounded-full bg-gradient-to-r from-pink-500 to-purple-500" />
+              <div className="mt-3 h-1 w-12 rounded-full bg-linear-to-r from-pink-500 to-purple-500" />
 
               <p className="mt-5 leading-7 text-slate-400">
                 We&apos;re always open to discussing new projects,
@@ -366,7 +366,7 @@ export default function ContactPage() {
               Send Us a Message
             </h2>
 
-            <div className="mt-3 h-1 w-12 rounded-full bg-gradient-to-r from-pink-500 to-purple-500" />
+            <div className="mt-3 h-1 w-12 rounded-full bg-linear-to-r from-pink-500 to-purple-500" />
 
             <p className="mt-5 text-slate-400">
               Fill in the form below and we&apos;ll get back to you
@@ -510,11 +510,11 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="group relative w-full overflow-hidden rounded-xl bg-gradient-to-r from-pink-500 via-purple-600 to-blue-500 px-6 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_35px_rgba(168,85,247,0.45)] disabled:cursor-not-allowed disabled:opacity-60"
+                className="group relative w-full overflow-hidden rounded-xl bg-linear-to-r from-pink-500 via-purple-600 to-blue-500 px-6 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_35px_rgba(168,85,247,0.45)] disabled:cursor-not-allowed disabled:opacity-60"
               >
 
                 {/* Shimmer */}
-                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+                <span className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
 
                 <span className="relative">
                   {loading ? "Sending..." : "Send Message  →"}
@@ -538,7 +538,7 @@ export default function ContactPage() {
 
       <section className="relative px-6 pb-20 sm:px-10 lg:px-20">
 
-        <div className="mx-auto max-w-6xl overflow-hidden rounded-3xl border border-purple-500/30 bg-gradient-to-r from-purple-900/30 via-pink-900/20 to-blue-900/30 p-8 backdrop-blur-xl sm:p-12">
+        <div className="mx-auto max-w-6xl overflow-hidden rounded-3xl border border-purple-500/30 bg-linear-to-r from-purple-900/30 via-pink-900/20 to-blue-900/30 p-8 backdrop-blur-xl sm:p-12">
 
           <div className="flex flex-col items-center justify-between gap-8 text-center md:flex-row md:text-left">
 
