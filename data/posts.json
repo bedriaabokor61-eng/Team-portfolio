@@ -1,0 +1,66 @@
+[
+    {
+      "slug": "getting-started-with-nextjs-app-router",
+      "title": "Getting Started with Next.js App Router",
+      "category": "Frontend",
+      "date": "2026-08-01",
+      "excerpt": "Learn how the App Router transforms modern React development with Server Components, simplified layout structures, and intuitive dynamic routing.",
+      "content": "Next.js App Router introduces a modern paradigm built around React Server Components, making server-side rendering and static site generation more intuitive than ever.\n\nBy leveraging file-system based routing inside the `app` directory, developers can build nested layouts, handle server actions, and manage loading states with zero extra boilerplate.\n\nWhen combined with utility-first CSS frameworks like Tailwind CSS, building responsive, accessible, and performant web applications becomes remarkably fast."
+    },
+    {
+      "slug": "mastering-tailwind-css-grid-layouts",
+      "title": "Mastering Responsive Grid Layouts with Tailwind CSS",
+      "category": "Design",
+      "date": "2026-08-03",
+      "excerpt": "A deep dive into building adaptive, multi-column card grids for web applications without leaving your HTML or JSX markup.",
+      "content": "Designing interfaces that look pristine across desktop, tablet, and mobile screens often required writing complex custom CSS media queries.\n\nTailwind CSS simplifies this with built-in responsive prefixes like `md:` and `lg:`. By using classes such as `grid gap-8 md:grid-cols-2 lg:grid-cols-3`, you establish fluid layouts in a single line of code.\n\nUtility classes eliminate CSS file bloat and ensure consistency across component designs, freeing developers to focus on application functionality and UX."
+    },
+    {
+      "slug": "building-scalable-logistics-apps",
+      "title": "Architecting Real-Time Tracking in Logistics Applications",
+      "category": "Architecture",
+      "date": "2026-08-05",
+      "excerpt": "Key architectural considerations when connecting mobile clients with real-time backend services for live package monitoring.",
+      "content": "Real-time updates form the backbone of modern logistics platforms. Delivering reliable, sub-second status updates to drivers and customers requires low-latency data pipelines.\n\nBy integrating event-driven architectures with cloud databases like Firebase, applications can push continuous location streams without hammering servers with continuous polling request loops.\n\nOptimizing client-side battery consumption while maintaining precise GPS updates remains a vital balancing act during driver navigation cycles."
+    },
+    {
+      "slug": "containerizing-nextjs-apps-with-docker",
+      "title": "Containerizing Next.js Applications with Docker",
+      "category": "DevOps",
+      "date": "2026-08-07",
+      "excerpt": "How to package your Next.js application into lightweight, production-ready Docker images using multi-stage builds.",
+      "content": "Docker ensures that your application runs identically across local development machines, staging servers, and cloud production environments.\n\nBy writing multi-stage Dockerfiles, you isolate the node_modules build phase from the runtime server, shrinking final image sizes down to under 100MB.\n\nCombined with automated GitHub Actions CI/CD pipelines, containerized deployments become deterministic, fast, and resilient against missing environment dependencies."
+    },
+    {
+      "slug": "state-management-in-modern-react",
+      "title": "Rethinking Client-Side State Management in Modern React",
+      "category": "Frontend",
+      "date": "2026-08-08",
+      "excerpt": "When to rely on React Server Components, URL query parameters, and lightweight state stores like Zustand or Context API.",
+      "content": "State management in React has evolved rapidly. With React Server Components handling data fetching natively, the need for giant monolithic global stores like Redux has decreased.\n\nModern React patterns favor lifting server state to the network layer, storing search and filter filters directly in URL parameters, and keeping UI state localized.\n\nWhen true global client state is needed, lightweight atomic stores like Zustand offer high performance without boilerplate code."
+    },
+    {
+      "slug": "optimizing-database-queries-for-scale",
+      "title": "Optimizing Relational & Document Database Queries",
+      "category": "Database",
+      "date": "2026-08-10",
+      "excerpt": "Practical techniques for indexing, query profiling, and connection pooling to eliminate database bottlenecks.",
+      "content": "As application traffic scales, unindexed database queries quickly become the primary cause of slow HTTP response times.\n\nUnderstanding index coverage, query execution plans, and avoiding N+1 select patterns allows backend microservices to maintain sub-50ms response latencies.\n\nImplementing connection pools and read-replicas ensures your database cluster scales horizontally without running out of socket descriptors under peak loads."
+    },
+    {
+      "slug": "securing-web-apps-against-owasp-top-10",
+      "title": "Hardening Web Applications Against OWASP Vulnerabilities",
+      "category": "Security",
+      "date": "2026-08-11",
+      "excerpt": "Essential security practices for modern web apps, including Content Security Policy, XSS prevention, and secure token storage.",
+      "content": "Security must be baked into every layer of application design rather than treated as an afterthought before launch.\n\nSanitizing user inputs, configuring strict Content Security Policy (CSP) headers, and storing JWTs in HttpOnly SameSite cookies protect users against Cross-Site Scripting (XSS) and CSRF attacks.\n\nAutomated dependency auditing tools integrated into your deployment pipeline continuously flag vulnerable npm packages before code hits production."
+    },
+    {
+      "slug": "web-vitals-and-performance-optimization",
+      "title": "Mastering Core Web Vitals for Lightning Fast Web Pages",
+      "category": "Performance",
+      "date": "2026-08-12",
+      "excerpt": "How to measure and improve LCP, INP, and CLS scores to boost user retention and search engine rankings.",
+      "content": "Core Web Vitals are Google's metrics for measuring real-world user experience regarding loading speed, interactivity, and visual stability.\n\nOptimizing Largest Contentful Paint (LCP) involves serving next-gen image formats like WebP/AVIF, preloading critical fonts, and utilizing CDNs for edge caching.\n\nMinimizing main-thread JavaScript execution ensures immediate Interaction to Next Paint (INP) responsiveness, keeping your site buttery smooth on low-powered mobile devices."
+    }
+  ]
