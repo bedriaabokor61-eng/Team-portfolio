@@ -62,7 +62,7 @@ const VALUES = [
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-white text-neutral-900 dark:bg-neutral-950 dark:text-white">
+    <div className="min-h-screen bg-[#101010] ">
       
 
       <main>
@@ -71,28 +71,28 @@ export default function AboutPage() {
           <div className="mx-auto max-w-7xl px-6 pb-24 pt-20 sm:px-10 lg:px-16 lg:pb-32 lg:pt-28">
             <div className="grid items-end gap-12 lg:grid-cols-[1.4fr_0.6fr]">
               <div>
-                <p className="mb-6 text-sm font-semibold uppercase tracking-[0.25em] text-neutral-500 dark:text-neutral-400">
+                <p className="mb-6 text-sm font-semibold uppercase tracking-[0.25em] text-white">
                   About us
                 </p>
 
-                <h1 className="max-w-5xl text-5xl font-semibold leading-[0.95] tracking-[-0.04em] sm:text-6xl lg:text-8xl">
+                <h1 className="max-w-5xl text-5xl text-lime-500 font-semibold leading-[0.95] tracking-[-0.04em] sm:text-6xl lg:text-8xl">
                   We build things
                   <br />
-                  <span className="text-neutral-400 dark:text-neutral-600">
+                  <span className="text-white">
                     together.
                   </span>
                 </h1>
               </div>
 
               <div className="max-w-sm lg:pb-2">
-                <p className="text-base leading-7 text-neutral-600 dark:text-neutral-400">
+                <p className="text-base leading-7 text-white/80 dark:text-black-400">
                   We are a group of creative and curious people who enjoy
                   turning ideas into useful digital experiences.
                 </p>
 
                 <div className="mt-8 h-px w-16 bg-neutral-900 dark:bg-white" />
 
-                <p className="mt-5 text-sm leading-6 text-neutral-500 dark:text-neutral-500">
+                <p className="mt-5 text-sm leading-6 text-white/80 dark:text-black-400">
                   Designers, developers and problem solvers working toward
                   better digital experiences.
                 </p>
@@ -109,11 +109,11 @@ export default function AboutPage() {
           <div className="mx-auto max-w-7xl px-6 py-24 sm:px-10 lg:px-16 lg:py-32">
             <div className="grid gap-16 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-neutral-400">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white">
                   Our story
                 </p>
 
-                <h2 className="mt-5 max-w-sm text-4xl font-semibold tracking-tight sm:text-5xl">
+                <h2 className="mt-5 max-w-sm text-4xl text-lime-500 font-semibold tracking-tight sm:text-5xl">
                   Small team.
                   <br />
                   Big ideas.
@@ -126,7 +126,7 @@ export default function AboutPage() {
                   they create.
                 </p>
 
-                <div className="mt-8 space-y-6 text-base leading-7 text-neutral-600 dark:text-neutral-400">
+                <div className="mt-8 space-y-6 text-base leading-7 text-white/80 dark:text-black-400">
                   <p>
                     Our team brings together different skills, perspectives and
                     ideas. We collaborate on projects, solve problems together
@@ -149,16 +149,16 @@ export default function AboutPage() {
           <div className="mx-auto max-w-7xl px-6 py-24 sm:px-10 lg:px-16 lg:py-32">
             <div className="mb-16 flex flex-col justify-between gap-6 md:flex-row md:items-end">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-neutral-400">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white">
                   What guides us
                 </p>
 
-                <h2 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
+                <h2 className="mt-4 text-4xl text-lime-500 font-semibold tracking-tight sm:text-5xl">
                   How we work
                 </h2>
               </div>
 
-              <p className="max-w-md text-sm leading-6 text-neutral-500 dark:text-neutral-400">
+              <p className="max-w-md text-sm leading-6 text-white/80 dark:text-black-400">
                 The principles behind the decisions we make and the products
                 we build.
               </p>
@@ -178,7 +178,7 @@ export default function AboutPage() {
                     {value.title}
                   </h3>
 
-                  <p className="mt-4 max-w-sm text-sm leading-7 text-neutral-500 dark:text-neutral-400">
+                  <p className="mt-4 max-w-sm text-sm leading-7 text-white/80 dark:text-black-400">
                     {value.description}
                   </p>
                 </article>
@@ -191,11 +191,11 @@ export default function AboutPage() {
         <section className="bg-neutral-50 dark:bg-neutral-900/50">
           <div className="mx-auto max-w-7xl px-6 py-24 sm:px-10 lg:px-16 lg:py-32">
             <div className="max-w-2xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-neutral-400">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white">
                 The team
               </p>
 
-              <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-6xl">
+              <h2 className="mt-5 text-4xl text-lime-500 font-semibold tracking-tight sm:text-6xl">
                 Meet the talented
                 <br />
                 people behind it all.
@@ -208,54 +208,24 @@ export default function AboutPage() {
             </div>
 			</div>
 
-           {/* Team grid */}
-<div className="mt-16 grid gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+{/* Team grid */}
+<div className="mt-16 grid gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
   {TEAM.map((member, index) => (
     <article key={member.name} className="group">
 
-      {/* ANIMATED AVATAR CARD */}
-      <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-gradient-to-br from-neutral-100 via-white to-neutral-200 shadow-sm transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-xl dark:from-neutral-800 dark:via-neutral-900 dark:to-neutral-800">
+      {/* Circular Avatar */}
+      <div className="relative mx-auto h-72 w-72 overflow-hidden rounded-full border-4 border-green-500 bg-neutral-100 dark:border-green-400 dark:bg-neutral-800">
 
-        {/* Floating decoration */}
-        <div className="absolute left-8 top-8 h-3 w-3 animate-pulse rounded-full bg-orange-300/70" />
-
-        <div
-          className="absolute right-10 top-14 h-2 w-2 animate-pulse rounded-full bg-purple-300/70"
-          style={{ animationDelay: "700ms" }}
+        {/* Anime Avatar */}
+        <img
+          src={member.avatar}
+          alt={`${member.name} anime avatar`}
+          className="h-full w-full object-cover"
         />
 
-        <div
-          className="absolute bottom-20 left-10 h-2 w-2 animate-pulse rounded-full bg-blue-300/70"
-          style={{ animationDelay: "1200ms" }}
-        />
-
-        {/* Background circle */}
-        <div className="absolute left-1/2 top-[42%] h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/80 shadow-inner dark:bg-neutral-800 sm:h-64 sm:w-64" />
-
-        {/* Rotating ring */}
-        <div className="absolute left-1/2 top-[42%] h-64 w-64 -translate-x-1/2 -translate-y-1/2 animate-[spin_20s_linear_infinite] rounded-full border border-dashed border-neutral-300 dark:border-neutral-700 sm:h-72 sm:w-72" />
-
-        {/* Anime avatar */}
-        <div className="absolute left-1/2 top-[42%] w-52 -translate-x-1/2 -translate-y-1/2 animate-[float_4s_ease-in-out_infinite] transition-transform duration-500 group-hover:scale-110 sm:w-60">
-          <img
-            src={member.avatar}
-            alt={`${member.name} anime avatar`}
-            className="h-full w-full object-contain drop-shadow-2xl"
-          />
-        </div>
-
-        {/* Decorative square */}
-        <div className="absolute left-[18%] top-[35%] h-4 w-4 rotate-45 rounded-sm border border-neutral-300 dark:border-neutral-700" />
-
-        {/* Decorative circle */}
-        <div className="absolute right-[18%] top-[28%] h-3 w-3 rounded-full border border-neutral-300 dark:border-neutral-700" />
-
-        {/* Decorative square */}
-        <div className="absolute bottom-[20%] right-[15%] h-5 w-5 rotate-12 rounded-md border border-neutral-300 dark:border-neutral-700" />
-
-        {/* Member number */}
-        <div className="absolute bottom-5 left-5">
-          <span className="text-5xl font-semibold tracking-tighter text-neutral-200 dark:text-neutral-800">
+        {/* Small number */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
+          <span className="rounded-full bg-black/60 px-4 py-1 text-xs font-semibold text-white backdrop-blur-sm">
             {String(index + 1).padStart(2, "0")}
           </span>
         </div>
@@ -263,19 +233,16 @@ export default function AboutPage() {
       </div>
 
       {/* Member information */}
-      <div className="mt-5">
+      <div className="mt-6 text-center">
         <h3 className="text-lg font-semibold tracking-tight">
           {member.name}
         </h3>
 
-        <p className="mt-1 text-sm font-medium text-neutral-500 dark:text-neutral-400">
+        <p className="mt-1 text-sm font-medium text-green-600 dark:text-green-400">
           {member.role}
         </p>
 
-        {/* Small accent line */}
-        <div className="mt-3 h-px w-8 bg-neutral-300 transition-all duration-300 group-hover:w-16 dark:bg-neutral-700" />
-
-        <p className="mt-3 max-w-sm text-sm leading-6 text-neutral-500 dark:text-neutral-400">
+        <p className="mx-auto mt-3 max-w-sm text-sm leading-6 text-neutral-500 dark:text-neutral-400">
           {member.bio}
         </p>
       </div>
@@ -291,14 +258,14 @@ export default function AboutPage() {
             <div className="border-t border-neutral-200 pt-16 dark:border-neutral-800 lg:pt-24">
               <div className="grid gap-10 lg:grid-cols-[1fr_0.6fr] lg:items-end">
                 <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-neutral-400">
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white">
                     Join us
                   </p>
 
-                  <h2 className="mt-5 max-w-4xl text-5xl font-semibold leading-none tracking-[-0.04em] sm:text-6xl lg:text-8xl">
+                  <h2 className="mt-5 max-w-4xl text-5xl  text-lime-500 font-semibold leading-none tracking-[-0.04em] sm:text-6xl lg:text-8xl">
                     We&apos;re looking for
                     <br />
-                    <span className="text-neutral-400 dark:text-neutral-600">
+                    <span className="text-lime-500">
                       talented people.
                     </span>
                   </h2>
@@ -313,7 +280,7 @@ export default function AboutPage() {
 
                   <Link
                     href="/contact"
-                    className="group mt-8 inline-flex items-center gap-3 rounded-full bg-neutral-900 px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:-translate-y-1 hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200"
+                    className="group mt-8 inline-flex items-center gap-3 rounded-full bg-lime-500 px-6 py-3 text-sm font-medium text-lime-500 transition-all duration-300 hover:-translate-y-1 hover:bg-neutral-700 dark:bg-lime dark:text-black dark:hover:bg-neutral-200"
                   >
                     Get in touch
 
