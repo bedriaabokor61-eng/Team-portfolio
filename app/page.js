@@ -3,7 +3,6 @@ import Navbar from "./components/Navbar";
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#101010] text-white">
-      <Navbar />
 
       <section className="mx-auto flex min-h-[calc(100vh-72px)] max-w-7xl items-center px-6 py-16 lg:px-12">
         <div className="grid w-full items-center gap-12 lg:grid-cols-2">
