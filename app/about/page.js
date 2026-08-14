@@ -1,3 +1,4 @@
+
 "use client"
 
 import Link from "next/link"
@@ -339,3 +340,112 @@ export default function AboutPage() {
     </div>
   )
 }
+
+import fs from "fs";
+import path from "path";
+
+const dockerfileContents = fs.readFileSync(path.join(process.cwd(), "Dockerfile"), "utf8");
+
+export default function AboutPage() {
+  return (
+    <main className="min-h-screen bg-slate-50 text-slate-900 px-6 py-10 sm:px-10 lg:px-16">
+      <section className="mx-auto max-w-6xl rounded-3xl bg-white p-8 shadow-xl shadow-slate-200 ring-1 ring-slate-200">
+        <div className="space-y-4">
+          <p className="text-sm uppercase tracking-[0.3em] text-cyan-600">About Our Team</p>
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Team Portfolio</h1>
+          <p className="max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
+            We are a collaborative development team building a modern portfolio web app with Next.js and Tailwind CSS.
+            Our goal is to share who we are, why we work together, and how we ship our project using Docker for local container testing.
+          </p>
+        </div>
+
+        <div className="mt-12 space-y-10">
+          <section className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+            <h2 className="text-2xl font-semibold text-slate-900">Mission</h2>
+            <p className="mt-4 text-slate-600 leading-8">
+              Our mission is to create a polished portfolio experience that highlights our skills, teamwork, and project delivery.
+              We combine accessible design, performant React code, and containerized workflows to collaborate efficiently.
+            </p>
+            <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+              <li className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
+                <h3 className="font-medium text-slate-900">Design with clarity</h3>
+                <p className="mt-2 text-slate-600">Build layouts and content that communicate our work clearly to visitors.</p>
+              </li>
+              <li className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
+                <h3 className="font-medium text-slate-900">Collaborate effectively</h3>
+                <p className="mt-2 text-slate-600">Share roles, deliverables, and processes so every team member contributes with confidence.</p>
+              </li>
+              <li className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
+                <h3 className="font-medium text-slate-900">Ship with reliability</h3>
+                <p className="mt-2 text-slate-600">Use containerized builds and local testing so our app behaves consistently on every machine.</p>
+              </li>
+              <li className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
+                <h3 className="font-medium text-slate-900">Learn together</h3>
+                <p className="mt-2 text-slate-600">Grow our skills by reviewing code, sharing feedback, and improving our web development workflow.</p>
+              </li>
+            </ul>
+          </section>
+
+          <section className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+            <h2 className="text-2xl font-semibold text-slate-900">Team Bios</h2>
+            <div className="mt-6 grid gap-6 lg:grid-cols-2">
+              <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h3 className="text-xl font-semibold text-slate-900">Victor</h3>
+                <p className="mt-3 text-slate-600 leading-7">As the page creator, Victor focuses on building engaging layouts, coordinating the About page content, and making sure the portfolio reflects our team story.</p>
+                <p className="mt-4 text-sm text-slate-500">Victor leads UI development and contributes to Tailwind-based page design.</p>
+              </article>
+              <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h3 className="text-xl font-semibold text-slate-900">Henry</h3>
+                <p className="mt-3 text-slate-600 leading-7">Henry brings creative direction and frontend polish, ensuring our site feels modern, accessible, and easy to navigate.</p>
+                <p className="mt-4 text-sm text-slate-500">Henry supports design consistency and user experience across the portfolio.</p>
+              </article>
+              <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h3 className="text-xl font-semibold text-slate-900">Millicent</h3>
+                <p className="mt-3 text-slate-600 leading-7">Millicent helps structure content and refines messaging so the portfolio showcases our strengths clearly and professionally.</p>
+                <p className="mt-4 text-sm text-slate-500">Millicent focuses on storytelling, content strategy, and team alignment.</p>
+              </article>
+              <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h3 className="text-xl font-semibold text-slate-900">Mervin</h3>
+                <p className="mt-3 text-slate-600 leading-7">Mervin contributes technical review and ensures our codebase remains stable, maintainable, and ready for production deployment.</p>
+                <p className="mt-4 text-sm text-slate-500">Mervin supports build automation, testing, and project infrastructure.</p>
+              </article>
+              <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h3 className="text-xl font-semibold text-slate-900">Badria</h3>
+                <p className="mt-3 text-slate-600 leading-7">Badria focuses on bringing responsive layout improvements and helping the portfolio adapt beautifully across screens.</p>
+                <p className="mt-4 text-sm text-slate-500">Badria supports mobile-first design and cross-device testing.</p>
+              </article>
+            </div>
+          </section>
+
+          <section className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+            <h2 className="text-2xl font-semibold text-slate-900">Dockerfile Creation</h2>
+            <p className="mt-4 text-slate-600 leading-8">
+              We use a multi-stage Dockerfile to build and run the Next.js application efficiently. The build stage installs dependencies and produces the optimized production output, while the runtime stage serves the app with Node.js.
+            </p>
+            <div className="mt-6 rounded-3xl bg-slate-900 p-5 text-slate-100">
+              <pre className="overflow-x-auto text-sm leading-6">
+{dockerfileContents}
+              </pre>
+            </div>
+          </section>
+
+          <section className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+            <h2 className="text-2xl font-semibold text-slate-900">Local Container Testing</h2>
+            <p className="mt-4 text-slate-600 leading-8">
+              To verify the app in a container, build the Docker image and run it locally. This ensures the same production-ready environment runs on your machine and gives the team confidence that deployments behave consistently.
+            </p>
+            <ol className="mt-6 list-decimal space-y-3 pl-5 text-slate-600">
+              <li>Build the Docker image: <span className="font-mono text-slate-800">docker build -t team-portfolio .</span></li>
+              <li>Run the container: <span className="font-mono text-slate-800">docker run -p 3000:3000 team-portfolio</span></li>
+              <li>Open the app in your browser at <span className="font-mono text-slate-800">http://localhost:3000</span>.</li>
+            </ol>
+            <p className="mt-4 text-slate-600">
+              If you change source files, rebuild the image so local tests reflect the latest code. This workflow helps the team validate the portfolio on every platform before merging changes.
+            </p>
+          </section>
+        </div>
+      </section>
+    </main>
+  );
+}
+
