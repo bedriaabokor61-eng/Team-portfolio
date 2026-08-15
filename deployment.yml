@@ -1,0 +1,29 @@
+name: Build and Deploy
+on:
+push:
+branches: [ main ]
+jobs:
+build-and-deploy:
+runs-on: ubuntu-latest
+steps:
+- name: Checkout code
+uses: actions/checkout@v4
+- name: Set up Node.js
+uses: actions/setup-node@v4
+with:
+node-version: 20
+- name: Install dependencies
+run: npm install
+- name: Build project
+run: npm run build
+- name: Build Docker image
+run: docker build -t team-blog-portfolio .
+- name: Log in to container registry
+uses: docker/login-action@v3
+with:
+registry: ghcr.io
+username: ${{ github.actor }}
+password: ${{ secrets.GITHUB_TOKEN }}
+- name: Push image to registry
+run: |
+docker tag team-blog-portfolio ghcr.io/${{ github.rep
